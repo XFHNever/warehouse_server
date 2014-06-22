@@ -7,6 +7,9 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
+import com.nju.warehouse.util.FileUtil;
+import com.nju.warehouse.util.IPUtil;
+
 public class LaunchServer {
 	public static final String IP = "127.0.0.1";            //ipµØÖ·
 	public static final int PORT = 9999;                    //¶Ë¿ÚºÅ
@@ -15,6 +18,10 @@ public class LaunchServer {
 	
 	public static void main(String[] args) {
 		LaunchServer server = new LaunchServer();
+		
+		IPUtil.getIp();
+		
+		System.out.println(FileUtil.ReadIP("data/ip.txt"));
 		server.createRemote();
 	}
 	
